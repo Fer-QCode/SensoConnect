@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Senso RFID Post Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap -->
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+        <!-- jQuery -->
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!-- Font Awsome -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+        
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto"/>
+        <link href="static/css/style_new.css" rel="stylesheet"/>
+        
+        <script src="static/js/watermarkjs/watermark.min.js"></script>
+    </h:head>
+
+    <h:body>
+        
+        <div id="fb-root"></div>
+        
+        <div id="event_detail">
+            <h:inputHidden id="app_id" value="#{rFIDEventDetail.app_id}" />
+            <h:inputHidden id="app_secret" value="#{rFIDEventDetail.app_secret}" />
+            <h:inputHidden id="app_objUrl" value="#{rFIDEventDetail.app_objUrl}" />
+            <h:inputHidden id="app_privacy" value="#{rFIDEventDetail.app_privacy}" />
+            <h:inputHidden id="app_scopes" value="#{rFIDEventDetail.app_scopes}" />
+        </div>
+        <input id="tag" type="text" value=""></input>
+        
+        <div class="photos"></div>
+        
+        <div>
+            
+            <section class="camera" style="top: -42px; display:none; ">
+                
+                <div class="titulo">
+                    <p>No olvides sonreir y decir "Whisky" !! </p>
+                </div>
+                
+                <div class="foto">
+                    
+                    <div id="camera-test" ></div>
+                    <div class="message-success" style="display: none"> La foto publicada en tu muro </div>
+                    
+                </div>
+                
+                <div class="footer">
+                    <div class="powered"> Powered by </div>
+                    <img src="http://senso-lab.com/static/img/sensobco.png" />
+                </div>
+            </section>
+        </div>
+        
+        <div id="cam">
+            <div class="title">
+                <p>Escanea tu tag y compartenos una enorme sonrisa</p>
+            </div>
+        </div>
+        
+        <h:form id="formPost">
+            <h:inputHidden id="tagId" value="#{postToFacebook.tagId}" />
+            <p:remoteCommand name="postToFB" actionListener="#{postToFacebook.getPersonDetail}" 
+                             update="user:id, user:name, user:token"
+                             oncomplete="getUserDetail();" />
+            
+            <h:form id="user"  >
+                <h:inputHidden id="id" value="#{postToFacebook.person.fbuserID}" />
+                <h:inputHidden id="name" value="#{postToFacebook.person.fbName}" />
+                <h:inputHidden id="token" value="#{postToFacebook.person.fbAccessTokenLong}" />
+            </h:form>
+        </h:form>
+        
+        <script type="text/javascript" src="static/js/facebook-sdk/facebook-sdk.js"></script>
+        <script type="text/javascript" src="static/js/webcam/say-cheese.js" />
+        <script type="text/javascript" src="static/js/rfid-scripts/photo.js" />
+        
+        <script type="text/javascript">
+            var _objUser= '';
+            function getUserDetail(){
+                console.log('getUserDetail');
+                _objUser = $.parseJSON(
+                    '{ ' +
+                    ' "id": "' + $('#formPost\\:user\\:id').val() + '", ' +
+                    ' "name": "' + $('#formPost\\:user\\:name').val() + '", ' +
+                    ' "token": "' + $('#formPost\\:user\\:token').val() + '" ' +
+                    '}'
+                );
+                console.log(_objUser);
+            };
+            
+            var sayCheese = new SayCheese('#camera-test', {snapshots: true}),
+                _eventDetail = '',
+                login = $('.camera'),
+                photos = $('.photos'),
+                _tagId = '';
+            
+            sayCheese.start();
+            
+            
+        </script>
+        <script src="static/js/watermarkjs/watermark.js"></script>
+        <script type="text/javascript">
+            //Load plugin WaterMarkJS
+            var load = false;
+            window.onload = function(){
+                if(!load) {
+                    wmark.init({
+                        //config goes here 
+                        "className": "watermark", // default "watermark"
+                        "position": "bottom-right", // default "bottom-right"
+                        "path": "static/img/logo-senso-white.png", // The EventLogo must be loaded from DB
+                        "opacity": 50 // default 50
+                    });
+                    load = true;
+                }
+            };
+        </script>
+    </h:body>
+</html>
+

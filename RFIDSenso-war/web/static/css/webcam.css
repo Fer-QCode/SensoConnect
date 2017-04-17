@@ -1,0 +1,16 @@
+/* 
+    Created on : 19/12/2014, 03:36:31 PM
+    Author     : qcode
+*/
+
+#webcam {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    position: relative;
+}
+#webcam, #canvas {
+    background: none repeat scroll 0 0 #eee;
+    border: 20px solid #333;
+    border-radius: 20px;
+    width: 320px;
+}

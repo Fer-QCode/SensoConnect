@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEventDetailTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_id}"/>
+                    <h:outputText value="#{eventDetailController.selected.id}" title="#{bundle.ViewEventDetailTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_idEvent}"/>
+                    <h:outputText value="#{eventDetailController.selected.idEvent}" title="#{bundle.ViewEventDetailTitle_idEvent}"/>
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_fbAppId}"/>
+                    <h:outputText value="#{eventDetailController.selected.fbAppId}" title="#{bundle.ViewEventDetailTitle_fbAppId}"/>
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_fbAppSecret}"/>
+                    <h:outputText value="#{eventDetailController.selected.fbAppSecret}" title="#{bundle.ViewEventDetailTitle_fbAppSecret}"/>
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_objectUrl}"/>
+                    <h:outputText value="#{eventDetailController.selected.objectUrl}" title="#{bundle.ViewEventDetailTitle_objectUrl}"/>
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_scopes}"/>
+                    <h:outputText value="#{eventDetailController.selected.scopes}" title="#{bundle.ViewEventDetailTitle_scopes}"/>
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_privacy}"/>
+                    <h:outputText value="#{eventDetailController.selected.privacy}" title="#{bundle.ViewEventDetailTitle_privacy}"/>
+                    <h:outputText value="#{bundle.ViewEventDetailLabel_status}"/>
+                    <h:outputText value="#{eventDetailController.selected.status}" title="#{bundle.ViewEventDetailTitle_status}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{eventDetailController.destroyAndView}" value="#{bundle.ViewEventDetailDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEventDetailEditLink}"/>
+                <br />
+                <h:commandLink action="#{eventDetailController.prepareCreate}" value="#{bundle.ViewEventDetailCreateLink}" />
+                <br />
+                <h:commandLink action="#{eventDetailController.prepareList}" value="#{bundle.ViewEventDetailShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEventDetailIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

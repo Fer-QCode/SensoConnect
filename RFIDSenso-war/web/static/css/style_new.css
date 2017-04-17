@@ -1,0 +1,556 @@
+/*
+Author: Fernando Fernández
+*/
+html body{
+    font-family: Roboto;
+}
+
+body {
+    background: url("http://senso-lab.com/static/img/debut_light.png") repeat scroll 0 0 #28282e;
+    overflow: hidden;
+
+}
+
+.camera {
+    background: url("http://senso-lab.com/static/img/bg-footer-noise.jpg") repeat scroll 0 0 #28282e;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    height: 600px;
+    margin: 0 25%;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+}
+
+.login {
+    width: 500px;
+    height: 510px;
+    overflow: hidden;
+    background: url("http://senso-lab.com/static/img/bg-footer-noise.jpg") repeat scroll 0 0 #28282e;
+    border-radius: 6px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+    position: relative;
+}
+
+.login #welcome-title, 
+.camera #welcome-title {
+    padding-top: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: -3px;
+}
+
+.login .titulo, 
+.camera .titulo {
+    background: url("http://senso-lab.com/static/img/debut_light.png") repeat scroll 0 0 #28282e;
+    color: #bfbfbf;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    height: 40px;
+    margin-bottom: 65px;
+    margin-top: 80px;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    text-align: center;
+    width: auto;
+}
+
+.login .titulo .titulo_logo,
+.camera .titulo .titulo_logo {
+    background: url("http://senso-lab.com/static/img/debut_light.png") repeat scroll 0 0 #28282e;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    color: #eaeaea;
+    height: 145px;
+    margin: -67px auto 0;
+    padding: 0px;
+    text-align: center;
+    width: 260px;
+}
+
+.titulo_logo > img {
+    max-width: 100%;
+}
+
+.social {
+    margin: 25px 20px;
+    position: relative;
+    text-align: center;
+}
+
+.social a {
+    margin: 0 25px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    position: relative;
+    line-height: 64px;
+    background-color: #eaeaea;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));
+    background-image: -webkit-linear-gradient(top, #f6f6f6, #eaeaea);
+    background-image: -moz-linear-gradient(top, #f6f6f6, #eaeaea); 
+    background-image: -ms-linear-gradient(top, #f6f6f6, #eaeaea); 
+    background-image: -o-linear-gradient(top, #f6f6f6, #eaeaea);
+    background-image: linear-gradient(top, #f6f6f6, #eaeaea);
+    -moz-border-radius: 32px;
+    -webkit-border-radius: 32px;
+    border-radius: 32px;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .25), 0 2px 3px rgba(0, 0, 0, .1);
+    text-align: center;
+}
+
+.social a:active {
+    top: 1px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#eaeaea), to(#f6f6f6));
+    background-image: -webkit-linear-gradient(top, #eaeaea, #f6f6f6);
+    background-image: -moz-linear-gradient(top, #eaeaea, #f6f6f6); 
+    background-image: -ms-linear-gradient(top, #eaeaea, #f6f6f6); 
+    background-image: -o-linear-gradient(top, #eaeaea, #f6f6f6);
+    background-image: linear-gradient(top, #eaeaea, #f6f6f6);
+}
+
+.social a:before{
+    content: '';
+    position: absolute;
+    /*z-index: -1;*/
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    background-color: #eaeaea;
+    /*-moz-border-radius: 140px;
+    -webkit-border-radius: 140px;
+    border-radius: 140px;*/
+    opacity: 0.20;       
+    border-radius: 100%;
+}
+
+.social a{
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+a img {
+    max-width: 100%;
+}
+
+.twitter img {
+    vertical-align: -7px;
+}
+ 
+.instagram img {
+    vertical-align: -12px;
+}
+ 
+.facebook img {
+    vertical-align: -12px;
+}
+
+.login .footer,
+.camera .footer {
+    bottom: 5px;
+    color: #eaeaea;
+    font-size: 13px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    width: auto;
+}
+
+.login .footer img,
+.camera .footer img{
+    max-width: 55px;
+}
+
+.login .footer .powered,
+.camera .footer .powered {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+#logout {
+    color: rgb(217, 83, 79);
+    cursor: pointer;
+    font-size: 14px;
+    margin: 20% auto;
+    width: auto;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block }
+
+body { line-height: 1 }
+
+ol, ul { list-style: none }
+
+blockquote, q { quotes: none }
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+.container-login h1,
+#facebook-session {
+    color: #eaeaea;
+    font-family: "Roboto",sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#facebook-session > img {
+    border-radius: 50%;
+    max-height: 65px;
+    max-width: 65px;
+    margin: 5px 0 0;
+}
+
+.container {
+    margin-bottom: -20px;
+    margin-top: 20px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.text_input {
+    border: medium none;
+    border-radius: 3px 0 0 3px;
+    float: left;
+    font-size: 15px;
+    height: 44px;
+    line-height: 30px;
+    padding: 5px 0 5px 13px;
+    position: relative;
+    width: 70%;
+}
+
+.text_input:focus {
+  outline: none;
+}
+
+.btn.btn-success {
+  position: absolute; 
+  height: 44px;
+  /*line-height: 50px;*/
+  right: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  background: #47a447;
+  color: #193a19;
+  border: none;
+  width: 30%;
+  border-radius: 0 3px 3px 0;
+}
+
+.btn.btn-success:hover {
+    background-color: #51b451;
+}
+
+.btn:hover {
+  color: #eaeaea;
+  cursor: pointer;
+}
+
+
+
+/*
+* CSS post Photo
+*/
+
+.photos {
+    background: url("../img/camera.png") no-repeat scroll center center / 50% auto rgba(182, 230, 255, 0.5);
+    border-radius: 2px;
+    bottom: 100px;
+    height: 440px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    top: 100px;
+    width: 880px;
+}
+
+.photos img {
+    background-color: rgba(14, 14, 14, 0.3);
+    background-position: center center;
+    border-radius: 5px;
+    float: left;
+    height: 110px;
+    margin: 1px;
+    overflow: hidden;
+    transition: all 0.25s ease 0s;
+    width: 145px;
+}
+
+.camera .titulo {
+    background: url("http://senso-lab.com/static/img/debut_light.png") repeat scroll 0 0 #28282e;
+    border-radius: 3px;
+    color: #4e5665;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    margin: 10px;
+    padding: 17px;
+    text-align: center;
+}
+
+.camera .foto {
+    border: 5px solid #eaeaea;
+    border-radius: 3px;
+    height: 415px;
+    margin: 35px auto;
+    width: 550px;
+    position: relative;
+    text-align: center;
+}
+
+.foto i {
+    color: #eaeaea;
+    font-size: 13em;
+    opacity: 0.15;
+    position: relative;
+    top: 20px;
+}
+
+.foto > img {
+    max-height: 235px;
+    max-width: 311px;
+}
+
+.foto .img-posted {
+    color: #eaeaea;
+    margin: 10px;
+}
+
+.message-success {
+    color: #eaeaea;
+    font-size: inherit;
+    margin-top: 15px;
+}
+
+/*.login .swipe {
+    background: url("http://senso-lab.com/static/img/debut_light.png") repeat scroll 0 0 #28282e;
+    border-radius: 5px;
+    height: 60px;
+    margin: 34px auto 15px;
+    text-align: center;
+    width: 65%;
+}
+
+.swipe > p {
+    font-size: 17px;
+    line-height: 60px;
+    margin: 0 auto;
+    color: #4e5665;
+}*/
+
+.overlay_timer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 15%;
+    text-align: center;
+    background: white;
+    opacity: 0.9; /* I use 'opacity' because then all child elements will have the same opacity */
+    color: grey;
+    font-size: 36px;
+    z-index: 99;
+}
+.overlay_timer_numbers {
+    position: absolute;
+    z-index: 250;
+    text-align: center;
+    width: 100%;
+    background: white;
+}
+#camera-test {
+    margin: 0 auto;
+    text-align: center;
+}
+#camera-test video {
+    margin: 0 auto;
+    width: 100%;
+}
+.bubble {
+    background-image: url("../img/bg-footer-noise.jpg");
+    border-radius: 5px;
+    color: #a6eee6;
+    font-size: 2.5em;
+    height: 100px;
+    padding: 25px 10px;
+    position: relative;
+    text-align: center;
+    width: 600px;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+#mainArea {
+    height: 190px;
+    margin: 0 auto 2px;
+    width: auto;
+    text-align: center;
+}
+#mainArea:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/*.bubble-swipe {
+    background: none repeat scroll 0 0 #58b5ff;
+    border-radius: 50%;
+    float: right;
+    height: 100px;
+    margin: 25px 255px 0 0;
+    position: relative;
+    top: -155px;
+    width: 250px;
+    z-index: 99999;
+    -moz-transform: rotate(20deg);
+}
+
+.bubble-swipe:after {
+    content: "Swipe your tag!";
+    font-size: 20px;
+    left: 55px;
+    margin: 42px auto;
+    position: absolute;
+    z-index: 1;
+}
+
+.swipe-pointer {
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 16px 0px;
+    border-color: rgb(88, 181, 255) transparent;
+    display: block;
+    width: 0px;
+    z-index: 1;
+    bottom: -13px;
+    left: 100px;
+}*/
+
+.like-us, .check-in,
+.share-it, .header {
+    display: inline-block;
+}
+
+/*.like-us img {
+    background-color: #58b5ff;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    max-width: 180px;
+    padding: 5px;
+}*/
+
+.like-us img,
+.check-in img,
+.share-it img{
+    background-color: #58b5ff;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    margin: 7px;
+    max-width: 120px;
+    padding: 5px;
+}
+
+.header img {
+    max-width: 125px;
+}
+.container-like, 
+.container-like-thnx {
+    background: url("static/img/debut_light.png") repeat scroll rgba(0, 0, 0, 0);
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    width: auto;
+}
+
+.like-us > p {
+    color: #eaeaea;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.like-us > h1, 
+.check-in > h1,
+.share-it > h1 {
+    color: #eaeaea;
+    font-size: 30px;
+}
+
+.like-us h1 > strong, 
+.check-in h1 > strong,
+.share-it h1 > strong {
+    font-weight: bold;
+}
+
+.like-us > h2 {
+    color: #eaeaea;
+    font-size: 20px;
+    margin: 40px auto;
+}
+
+#tag {
+    background-color: transparent;
+    border: 0 none;
+    color: transparent;
+    cursor: default;
+}
+
+#cam{
+    background-image: url("../img/bg-footer-noise.jpg");
+    border-radius: 3px;
+    bottom: 0;
+    color: #fff;
+    height: 70px;
+    margin: 0 25%;
+    opacity: 1;
+    position: fixed;
+    text-align: center;
+    width: 50%;
+}
+
+#cam .title {
+    background: url("http://senso-lab.com/static/img/debut_light.png") repeat scroll 0 0 #28282e;
+    border-radius: 3px;
+    color: #4e5665;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    height: 87%;
+    margin: 5px auto;
+    padding: 3.5%;
+    text-align: center;
+    width: 98%;
+}
+

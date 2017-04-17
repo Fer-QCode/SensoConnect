@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Senso RFID Registration Example</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap -->
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+        <!-- jQuery -->
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!-- Font Awsome -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+        
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto"/>
+        <link href="static/css/style_new.css" rel="stylesheet"/>
+    </h:head>
+
+    <h:body>
+        
+        <p:inputText id="inputLoadPF" style="display: none;" />
+        
+        <div id="fb-root"></div>
+        
+        <div id="event_detail">
+            <h:inputHidden id="app_id" value="#{rFIDEventDetail.app_id}" />
+            <h:inputHidden id="app_secret" value="#{rFIDEventDetail.app_secret}" />
+            <h:inputHidden id="app_objUrl" value="#{rFIDEventDetail.app_objUrl}" />
+            <h:inputHidden id="app_privacy" value="#{rFIDEventDetail.app_privacy}" />
+            <h:inputHidden id="app_scopes" value="#{rFIDEventDetail.app_scopes}" />
+        </div>
+        
+        <div>
+            <section class="login">
+                
+                <div id="welcome-title" style="display: none;">
+                    <h1> Bienvenido al evento </h1>
+                </div>
+                
+                <div class="titulo" style="margin-top: 100px; margin-bottom: 100px;">
+                    <div class="titulo_logo">
+                        <!-- Logo event here -->
+                        <img src="http://www.senso-lab.com/static/img/logos/bridgestone.png" alt="Logo event here" />
+                    </div>
+                </div>
+                
+
+                <div class="container-login">
+
+                    <h:form id="formLoginFB" style="display:block">
+                        <h1>
+                            <p>Registrate a</p>
+                            <!-- Event name -->
+                            <p>SensoConnect</p>
+                        </h1>
+                        <div class="social"> 
+                            <a class="facebook" href="">
+                                <img src="static/img/social/facebook.png" />
+                            </a>
+                        </div>
+                    </h:form>
+
+                    <h:form id="formRfid" style="display:none;" >
+                        <div id="facebook-session">
+                            <strong></strong>
+                            <p/>
+                            <img></img>
+                            <p>Activa tu tarjeta</p>
+                            
+                            <div class="container" style="width: 300px">
+                                
+                                <input type="text" id="tag_Id" style="display:none;" value="" ></input>
+                                <h:inputText id="id-card-fb" class="text_input" value="#{rFIDEventDetail.rfid_tag}" maxlength="9" />
+                                
+                                <p:remoteCommand name="rct" update="formRfid" actionListener="#{rFIDEventDetail.registroTag}" />
+                                <p:commandButton id="activate-card" value="Activar" type="button"
+                                                 onclick="rct(); beforeSubmit();"
+                                                 action="#{rFIDEventDetail.registroUsuario}" >
+                                    <f:ajax execute="formRfid" />
+                                </p:commandButton>
+                                <div id="logout" href=""> Cerrar Sesion </div>
+                            </div>
+                            <br />
+                        </div>
+                        <h:inputHidden id="user-Id" value="#{rFIDEventDetail.user_id}" />
+                        <h:inputHidden id="user-fname" value="#{rFIDEventDetail.user_firstName}" />
+                        <h:inputHidden id="user-lname" value="#{rFIDEventDetail.user_lastName}" />
+                        <h:inputHidden id="user-gender" value="#{rFIDEventDetail.user_gender}" />
+                        <h:inputHidden id="user-fbname" value="#{rFIDEventDetail.user_name}" />
+                        <h:inputHidden id="user-token" value="#{rFIDEventDetail.user_token_short}" />
+                        <h:inputHidden id="user-token-long" value="#{rFIDEventDetail.user_token_long}" />
+
+                    </h:form>
+
+                    <h:form id="formRfidLogged" style="display:none;" >
+                        <div id="facebook-session">
+                            <strong></strong>
+                            <p></p>
+                            <img></img>
+                            <p>Ahora estas conectado</p>
+                            <a id="logout"> Cerrar Sesion </a>
+                            
+                        </div>                
+                    </h:form>
+                    
+                </div>
+                
+                <div class="footer">
+                    <div class="powered"> Powered by </div>
+                    <img src="http://senso-lab.com/static/img/sensobco.png" />
+                </div>
+            </section>
+        </div>
+        
+        <script type="text/javascript" src="static/js/facebook-sdk/facebook-sdk.js"></script>
+        
+        <script type="text/javascript">
+            var fbUserObj = '',
+                _tagId = '',
+                _eventDetail='';
+
+        </script>
+
+        <script type="text/javascript" src="static/js/rfid-scripts/login.js"></script>
+        
+    </h:body>
+
+</html>
